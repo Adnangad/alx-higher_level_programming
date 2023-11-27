@@ -16,10 +16,10 @@ int check_cycle(listint_t *list)
 	{
 		return (0);
 	}
-	x = list;
-	y = list->next;
+	x = list->next;
+	y = list->next->next;
 
-	while(x && y && y->next->next)
+	while(x && y && y->next)
 	{
 		if (x == y)
 		{
