@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-for alpha in range(97, 123):
-    print(''.join(chr(alpha)), end='')
+print(''.join(chr(i) for i in range(97, 123)), end='')
