@@ -4,6 +4,6 @@ for i in range(9):
         if i == x or (str(i) + str(x) == "10"):
             continue
         if (str(i) + str(x) != "89"):
-            print(str(i) + str(x) + ", ", end='')
+            print("{}, ".format(str(i) + str(x)), end='')
         else:
-            print(str(i) + str(x))
+            print("{}".format(str(i) + str(x)))
