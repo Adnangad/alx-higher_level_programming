@@ -11,5 +11,5 @@ if __name__ == "__main__":
         print("{} arguments:".format(num))
     else:
         print("{} argument:".format(num))
-        for i in range(1, num + 1):
-            print("{}: {}".format(i, args.string[i - 1]))
+    for i in range(1, num + 1):
+        print("{}: {}".format(i , args.string[i - 1]))
