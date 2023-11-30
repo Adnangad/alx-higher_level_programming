@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+import argparse
 if __name__ == "__main__":
-    import argparse
     parser = argparse.ArgumentParser(description='Shows the number of arg and displays it')
     parser.add_argument('string', nargs='*')
     args = parser.parse_args()
