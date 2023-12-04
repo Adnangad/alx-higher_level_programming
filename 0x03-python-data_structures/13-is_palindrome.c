@@ -1,29 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-/**
- * rev_list - iterates a list in reverse
- * @head:pointer to head node
- *
- * Return:the list in reverse
- */
-listint_t *rev_list(listint_t *head)
-{
-	listint_t *prev, *curent, *nextnode;
-	prev = NULL;
-	curent = head;
-	nextnode = NULL;
-
-	while (curent != NULL)
-	{
-		nextnode = curent->next;
-		curent->next = prev;
-		prev = curent;
-		curent = nextnode;
-	}
-	return prev;
-}
 /**
  * is_palindrome -checks whether a list is palindrome
  * @head:point to point of head
@@ -32,21 +9,28 @@ listint_t *rev_list(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *cur, *rev = rev_list(*head);
-	cur = *head;
+	listint_t *current  = *head;
+	int i, length = 0;
 
-	if (rev == NULL || *head == NULL)
+	while (current != NULL)
 	{
-		return (0);
+		length++;
+		current = current->next;
 	}
-	while (cur != NULL && rev != NULL)
+	int arr[length];
+	current = *head;
+
+	for (i = 0; i < length; i++)
 	{
-		if (cur->n != rev->n)
+		arr[i] = current->n;
+		current = current->next;
+	}
+	for (i = 0; i < length / 2; i++)
+	{
+		if (arr[i] != arr[length - i - 1])
 		{
 			return (0);
 		}
-		cur = cur->next;
-		rev = rev->next;
 	}
 	return (1);
 }
