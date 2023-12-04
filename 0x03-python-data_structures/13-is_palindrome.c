@@ -11,6 +11,7 @@
 listint_t *rev_list(listint_t *head)
 {
 	listint_t *prev, *curent, *nextnode;
+
 	prev = NULL;
 	curent = head;
 	nextnode = NULL;
@@ -22,7 +23,7 @@ listint_t *rev_list(listint_t *head)
 		prev = curent;
 		curent = nextnode;
 	}
-	return prev;
+	return (prev);
 }
 /**
  * is_palindrome -checks whether a list is palindrome
@@ -37,6 +38,7 @@ int is_palindrome(listint_t **head)
 		return (0);
 	}
 	listint_t *cur, *rev = rev_list(*head);
+
 	cur = *head;
 
 	if (rev == NULL)
