@@ -35,7 +35,7 @@ int is_palindrome(listint_t **head)
 {
 	if (*head == NULL)
 	{
-		return (0);
+		return (1);
 	}
 	listint_t *cur, *rev = rev_list(*head);
 
