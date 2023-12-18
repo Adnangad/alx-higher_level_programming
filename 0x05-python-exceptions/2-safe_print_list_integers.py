@@ -9,6 +9,7 @@ def safe_print_list_integers(my_list=[], x=0):
                     rez += 1
             except (ValueError, TypeError):
                 pass
-        print()
-    except (TypeError, ValueError):
-        return rez
+    except IndexError:
+        pass
+    print()
+    return rez
