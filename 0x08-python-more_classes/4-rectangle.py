@@ -62,6 +62,7 @@ class Rectangle:
         return x
 
     def __repr__(self):
+        """Return String rep."""
         if self.width == 0 or self.height == 0:
             return ""
         return f"Rectangle({self.width}, {self.height})"
