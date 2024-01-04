@@ -8,10 +8,12 @@ class Rectangle:
     """
     Initializes the class.
     """
+    number_of_instances = 0
     def __init__(self, width=0, height=0):
         """Sets the var."""
         self.__height = height
         self.__width = width
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -66,4 +68,5 @@ class Rectangle:
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        print("Bye rectangle...")
+        print( "Bye rectangle...")
+        Rectangle.number_of_instances -= 1
