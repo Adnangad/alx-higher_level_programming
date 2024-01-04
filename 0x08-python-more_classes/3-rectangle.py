@@ -50,13 +50,11 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return 0
         return self.width + self.width + self.height + self.height
-    
+
     def __str__(self):
         for i in range(self.height):
             for j in range(self.width):
                 print("#", end='')
             print()
         b = ''
-        if self.width == 0 or self.height == 0:
-            return b
         return b
