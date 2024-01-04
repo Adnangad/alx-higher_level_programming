@@ -56,5 +56,4 @@ class Rectangle:
             for j in range(self.width):
                 print("#", end='')
             print()
-        b = ''
-        return b
+        return ''
