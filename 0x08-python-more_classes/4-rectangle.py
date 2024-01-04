@@ -56,10 +56,8 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return x
         for i in range(self.height):
-            for j in range(self.width):
-                x += "#"
-            x += "\n"
-        return x
+            x += "#" * self.width + "\n"
+        return x[:-1]
 
     def __repr__(self):
         """Return String rep."""
