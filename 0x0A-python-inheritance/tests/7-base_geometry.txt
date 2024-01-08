@@ -9,3 +9,11 @@ TypeError: hello must be an integer
 Traceback (most recent call last):
   ...
 ValueError: hello must be greater than 0
+>>> a.integer_validator(0.5, 23)
+Traceback (most recent call last):
+  ...
+TypeError: 0.5 must be a string
+>>> a.integer_validator(22, 23)
+Traceback (most recent call last):
+  ...
+TypeError: 22 must be a string
