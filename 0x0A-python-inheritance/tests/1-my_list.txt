@@ -1,0 +1,16 @@
+>>> MyList = __import__('1-my_list').MyList
+>>> ls = MyList()
+>>> ls.append(10)
+>>> ls.append(9)
+>>> ls.append(88)
+>>> ls.append(17)
+>>> ls.print_sorted()
+[9, 10, 17, 88]
+>>> ls.append(-92)
+>>> ls.print_sorted()
+[-92, 9, 10, 17, 88]
+>>> ls.append("Hello")
+>>> ls.print_sorted()
+Traceback (most recent call last):
+  ...
+TypeError: List should contain integers only

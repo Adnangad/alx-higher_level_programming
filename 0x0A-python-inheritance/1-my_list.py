@@ -8,6 +8,7 @@ class MyList(list):
     """
     This is a subclass that inherits from a list.
     """
-    def append(self):
     def print_sorted(self):
-        print(super().sort())
+        if not all(isinstance(i, int)for i in self):
+            raise TypeError("List should contain integers only")
+        print(sorted(self))
