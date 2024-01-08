@@ -13,5 +13,5 @@ def lookup(obj):
 
     Return:list object.
     """
-    ls = obj.__dict__
+    ls = list(obj.__dict__)
     return ls
