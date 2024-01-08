@@ -1,0 +1,11 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> a = BaseGeometry()
+>>> a.integer_validator("hello", 23)
+>>> a.integer_validator("hello", "world")
+Traceback (most recent call last):
+  ...
+TypeError: hello must be an integer
+>>> a.integer_validator("hello", -23)
+Traceback (most recent call last):
+  ...
+ValueError: hello must be greater than 0
