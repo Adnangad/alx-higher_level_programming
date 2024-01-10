@@ -5,6 +5,15 @@ This module contains Pascal.
 
 
 def pascal_triangle(n):
+    """
+    This func is for pascals triangle.
+    
+    Args:
+    n:the number of lists.
+
+    Return:
+    t.
+    """
     if n <= 0:
         return []
     t = []
