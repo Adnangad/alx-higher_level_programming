@@ -5,6 +5,8 @@ This module contains Pascal.
 
 
 def pascal_triangle(n):
+    if n <= 0:
+        return []
     t = []
     for i in range(n):
         r = [1] * (i + 1)
