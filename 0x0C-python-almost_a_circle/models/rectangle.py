@@ -10,32 +10,72 @@ class Rectangle(Base):
     This class inherits from Base.
     """
     def __init__(self, width, height, x=0, y=0, id=None):
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")
         self.__width = width
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
         self.__height = height
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
         self.__x = x
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
         self.__y = y
         super().__init__(id)
 
-    def get_width(self):
+    @property
+    def width(self):
         return self.__width
 
-    def get_height(self):
+    @property
+    def height(self):
         return self.__height
 
-    def get_x(self):
+    @property
+    def x(self):
         return self.__x
 
-    def get_y(self):
+    @property
+    def y(self):
         return self.__y
 
-    def set_width(self, width):
+    @width.setter
+    def width(self, width):
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")
         self.__width = width
 
-    def set_height(self, height):
-        self.__height = height
+    @height.setter
+    def height(self, val):
+        if not isinstance(val, int):
+            raise TypeError("height must be an integer")
+        if val <= 0:
+            raise ValueError("height must be > 0")
+        self.__height = val
 
-    def set_x(self, x):
+    @x.setter
+    def x(self, x):
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
         self.__x = x
 
-    def set_y(self, y):
+    @y.setter
+    def y(self, y):
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
         self.y = y
