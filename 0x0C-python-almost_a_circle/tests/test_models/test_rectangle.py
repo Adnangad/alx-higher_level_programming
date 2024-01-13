@@ -3,6 +3,8 @@
 This module tests the rectangle class.
 """
 import unittest
+import sys
+from io import StringIO
 from models.rectangle import Rectangle
 
 
@@ -113,6 +115,16 @@ class TestRectangle(unittest.TestCase):
     def test_are(self):
         b = Rectangle(20, 3)
         self.assertEqual(60, b.area())
+
+    def test_disp(self):
+        cap = StringIO()
+        sys.stdout = cap
+        b = Rectangle(2, 1)
+        b.display()
+        sys.stdout = sys.__stdout__
+        rez = cap.getvalue().strip()
+        c = "##"
+        self.assertEqual(c, rez)
 
 
 if __name__ == '__main__':
