@@ -116,7 +116,7 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
-        self.y = y
+        self.__y = y
 
     def area(self):
         """Returns width * height."""
@@ -134,6 +134,20 @@ class Rectangle(Base):
             for j in range(self.width):
                 print("#", end="")
             print()
+
+    def update(self, *args):
+        """This uses args to initialize att."""
+        if args:
+            if len(args) >= 1:
+                super().__init__(args[0])
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) >= 5:
+                self.y = args[4]
 
     def __str__(self):
         """Enables for printing."""

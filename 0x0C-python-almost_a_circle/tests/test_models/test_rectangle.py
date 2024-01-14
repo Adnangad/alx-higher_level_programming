@@ -180,6 +180,18 @@ class TestRectangle(unittest.TestCase):
         d = "[Rectangle] (12) 2/1 - 4/6"
         self.assertEqual(d, rez)
 
+    def test_update(self):
+        """Tests the update method."""
+        c = Rectangle(1, 3, 9, 7, 11)
+        c.update(4, 6, 8, 10, 22)
+        cap = StringIO()
+        sys.stdout = cap
+        print(c)
+        sys.stdout = sys.__stdout__
+        rez = cap.getvalue().strip()
+        d = "[Rectangle] (4) 10/22 - 6/8"
+        self.assertEqual(d, rez)
+
 
 if __name__ == '__main__':
     unittest.main()
