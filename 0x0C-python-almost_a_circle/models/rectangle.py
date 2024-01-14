@@ -135,8 +135,8 @@ class Rectangle(Base):
                 print("#", end="")
             print()
 
-    def update(self, *args):
-        """This uses args to initialize att."""
+    def update(self, *args, **kwargs):
+        """This uses args or kwargs to initialize att."""
         if args:
             if len(args) >= 1:
                 super().__init__(args[0])
@@ -148,6 +148,9 @@ class Rectangle(Base):
                 self.x = args[3]
             if len(args) >= 5:
                 self.y = args[4]
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         """Enables for printing."""
