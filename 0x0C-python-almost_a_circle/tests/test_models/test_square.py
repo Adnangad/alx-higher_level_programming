@@ -49,6 +49,36 @@ class TestSquare(unittest.TestCase):
         b = Square(20)
         self.assertEqual(400, b.area())
 
+    def test_size_setter(self):
+        """Tests the setter."""
+        b = Square(25)
+        b.size = 22
+        self.assertEqual(22, b.size)
+
+    def test_update_args(self):
+        """Tests the update method."""
+        c = Square(11, 12, 13, 14)
+        c.update(1, 2, 3, 4)
+        cap = StringIO()
+        sys.stdout = cap
+        print(c)
+        sys.stdout = sys.__stdout__
+        rez = cap.getvalue().strip()
+        d = "[Square] (1) 3/4 - 2"
+        self.assertEqual(d, rez)
+
+    def test_update_kwargs(self):
+        """Tests the update method."""
+        c = Square(11, 12, 13, 14)
+        c.update(x=3)
+        cap = StringIO()
+        sys.stdout = cap
+        print(c)
+        sys.stdout = sys.__stdout__
+        rez = cap.getvalue().strip()
+        d = "[Square] (14) 3/13 - 11"
+        self.assertEqual(d, rez)
+
 
 if __name__ == '__main__':
     unittest.main()
