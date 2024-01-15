@@ -221,7 +221,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_dict_again(self):
         """Tests the dict method."""
-        c = Rectangle(1, 2, 3, 4)
+        c = Rectangle(1, 2, 3, 4, 9)
         d = c.to_dictionary()
         e = {
                 'x': 3, 'y': 4, 'id': 9, 'height': 2, 'width': 1

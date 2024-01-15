@@ -38,5 +38,13 @@ class TestBase(unittest.TestCase):
         e = json.dumps([{"x": 30, "y": 40, "id": 50, "height": 20, "width": 10}])
         self.assertEqual(e, c)
 
+    def test_save_to_file(self):
+        b = Rectangle(10, 20)
+        Rectangle.save_to_file([b])
+        with open("Rectangle.json", "r") as f:
+            c = f.read()
+            ex = '[{"x": 0, "y": 0, "id": 5, "height": 20, "width": 10}]'
+            self.assertEqual(c, ex)
+
 if __name__ == '__main__':
     unittest.main()
