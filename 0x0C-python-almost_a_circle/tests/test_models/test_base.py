@@ -35,7 +35,8 @@ class TestBase(unittest.TestCase):
         b = Rectangle(10, 20, 30, 40, 50)
         d = b.to_dictionary()
         c = Base.to_json_string([d])
-        e = json.dumps([{"x": 30, "y": 40, "id": 50, "height": 20, "width": 10}])
+        e = json.dumps([
+            {"x": 30, "y": 40, "id": 50, "height": 20, "width": 10}])
         self.assertEqual(e, c)
 
     def test_save_to_file(self):
