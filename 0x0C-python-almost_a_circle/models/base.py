@@ -63,6 +63,10 @@ class Base:
     def load_from_file(cls):
         """returns a list of instances"""
         f = "{}.json".format(cls.__name__)
-        with open(f, "r") as b:
-            d = Base.from_json_string(b.read())
-            return [cls.create(**e) for e in d]
+        try:
+            with open(f, "r") as b:
+                d = Base.from_json_string(b.read())
+                return [cls.create(**e) for e in d]
+        except Exception as g:
+            print("An error occured,{}".format(g))
+            return []

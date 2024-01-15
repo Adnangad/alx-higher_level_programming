@@ -40,7 +40,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(e, c)
 
     def test_save_to_file(self):
-        b = Rectangle(10, 20)
+        b = Rectangle(10, 20, id=7)
         Rectangle.save_to_file([b])
         with open("Rectangle.json", "r") as f:
             c = f.read()
@@ -62,6 +62,18 @@ class TestBase(unittest.TestCase):
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
         self.assertNotEqual(r1, r2)
+
+    def test_load_from_file(self):
+        """Tests the method above."""
+        a = Rectangle(3, 5, 1)
+        Rectangle.save_to_file([a])
+        loaded = Rectangle.load_from_file()
+        self.assertEqual(len(loaded), 1)
+        loaded_instance = loaded[0]
+        self.assertIsInstance(loaded_instance, Rectangle)
+        self.assertEqual(loaded_instance.id, a.id)
+        self.assertEqual(loaded_instance.width, a.width)
+        self.assertEqual(loaded_instance.height, a.height)
 
 
 if __name__ == '__main__':
