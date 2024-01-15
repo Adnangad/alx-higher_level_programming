@@ -46,5 +46,15 @@ class TestBase(unittest.TestCase):
             ex = '[{"x": 0, "y": 0, "id": 5, "height": 20, "width": 10}]'
             self.assertEqual(c, ex)
 
+    def test_from_json_str(self):
+        c = [
+                {'id': 89, 'width': 10, 'height': 4},
+                {'id': 7, 'width': 1, 'height': 7}
+                ]
+        b = Rectangle.to_json_string(c)
+        rez = Rectangle.from_json_string(b)
+        self.assertEqual(c, rez)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -40,3 +40,10 @@ class Base:
             else:
                 dc = [obj.to_dictionary() for obj in list_objs]
                 f.write(Base.to_json_string(dc))
+
+    def from_json_string(json_string):
+        """Converts string to dict."""
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
