@@ -204,6 +204,30 @@ class TestRectangle(unittest.TestCase):
         d = "[Rectangle] (11) 9/7 - 29/50"
         self.assertEqual(d, rez)
 
+    def test_dict(self):
+        """Tests the dict method."""
+        c = Rectangle(1, 2, 3, 4, 5)
+        d = c.to_dictionary()
+        cap = StringIO()
+        sys.stdout = cap
+        print(d)
+        sys.stdout = sys.__stdout__
+        rez = cap.getvalue().strip()
+        e = {
+                'x': 3, 'y': 4, 'id': 5, 'height': 2, 'width': 1
+                }
+        req = str(e)
+        self.assertEqual(req, rez)
+
+    def test_dict_again(self):
+        """Tests the dict method."""
+        c = Rectangle(1, 2, 3, 4)
+        d = c.to_dictionary()
+        e = {
+                'x': 3, 'y': 4, 'id': 9, 'height': 2, 'width': 1
+                }
+        self.assertEqual(e, d)
+
 
 if __name__ == '__main__':
     unittest.main()
