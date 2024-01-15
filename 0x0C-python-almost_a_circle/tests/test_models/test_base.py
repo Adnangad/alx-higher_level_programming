@@ -43,7 +43,7 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([b])
         with open("Rectangle.json", "r") as f:
             c = f.read()
-            ex = '[{"x": 0, "y": 0, "id": 5, "height": 20, "width": 10}]'
+            ex = '[{"x": 0, "y": 0, "id": 7, "height": 20, "width": 10}]'
             self.assertEqual(c, ex)
 
     def test_from_json_str(self):
@@ -54,6 +54,13 @@ class TestBase(unittest.TestCase):
         b = Rectangle.to_json_string(c)
         rez = Rectangle.from_json_string(b)
         self.assertEqual(c, rez)
+
+    def test_create(self):
+        """Tests the method creare."""
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
 
 
 if __name__ == '__main__':
