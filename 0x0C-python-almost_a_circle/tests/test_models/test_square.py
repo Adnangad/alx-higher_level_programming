@@ -13,6 +13,10 @@ class TestSquare(unittest.TestCase):
     """
     The Tests Begin.
     """
+    def test_is_subclass(self):
+        b = Square(5)
+        self.assertIsInstance(b, Square)
+
     def test_init_of_attrsize(self):
         """This tests the size att."""
         b = Square(5)
@@ -78,6 +82,23 @@ class TestSquare(unittest.TestCase):
         rez = cap.getvalue().strip()
         d = "[Square] (14) 3/13 - 11"
         self.assertEqual(d, rez)
+
+    def test_to_dict(self):
+        """Tests the to_dict method."""
+        c = Square(2, 4, 6, 8)
+        d = c.to_dictionary()
+        f = {
+                "id": 8, "x": 4, "size": 2, "y": 6
+                }
+        self.assertDictEqual(d, f)
+
+    def test_to_dict_withother_methods(self):
+        """Tests the dict method with other methods."""
+        c = Square(2, 4, 6, 8)
+        d = c.to_dictionary()
+        e = Square(1, 3, 5, 9)
+        e.update(**d)
+        self.assertNotEqual(c, e)
 
 
 if __name__ == '__main__':
