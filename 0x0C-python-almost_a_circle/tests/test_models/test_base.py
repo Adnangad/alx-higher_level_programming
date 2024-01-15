@@ -4,7 +4,9 @@ This module tests functions and classes.
 """
 import unittest
 import os
+import json
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):
@@ -28,6 +30,13 @@ class TestBase(unittest.TestCase):
     def test_object_attribute(self):
         a = Base()
         self.assertTrue(hasattr(a, 'id'))
+
+    def test_static_method(self):
+        b = Rectangle(10, 20, 30, 40, 50)
+        d = b.to_dictionary()
+        c = Base.to_json_string([d])
+        e = json.dumps([{"x": 30, "y": 40, "id": 50, "height": 20, "width": 10}])
+        self.assertEqual(e, c)
 
 if __name__ == '__main__':
     unittest.main()
