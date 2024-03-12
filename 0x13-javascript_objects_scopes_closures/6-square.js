@@ -6,9 +6,9 @@ module.exports = class Square extends Rectangle {
   }
   charPrint (c) {
     if (c === undefined) {
-      this.print();
-    } else {
-      let x = 0;
+      c = 'X';
+    }
+    let x = 0;
       while (x < this.height) {
         let y = 0;
         while (y < this.width) {
@@ -18,6 +18,5 @@ module.exports = class Square extends Rectangle {
         process.stdout.write('\n');
         x++;
       }
-    }
   }
 };
