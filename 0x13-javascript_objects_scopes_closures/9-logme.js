@@ -1,7 +1,7 @@
 #!/usr/bin/node
-let ls = [];
+const ls = [];
 exports.logMe = function (item) {
   ls.push(item);
-  let idx = ls.indexOf(item);
+  const idx = ls.indexOf(item);
   console.log(idx + ': ' + item);
 };
