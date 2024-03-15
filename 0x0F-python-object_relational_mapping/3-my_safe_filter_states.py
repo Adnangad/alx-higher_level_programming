@@ -15,8 +15,9 @@ if __name__ == "__main__":
             db=sys.argv[3]
             )
     cur = db.cursor()
+    search = sys.argv[4]
     query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id ASC"
-    cur.execute(query, (sys.argv[2],))
+    cur.execute(query, (search,))
     rez = cur.fetchall()
     for i in rez:
         print(f"{i}")
