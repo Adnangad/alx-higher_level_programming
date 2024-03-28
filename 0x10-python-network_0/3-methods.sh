@@ -1,3 +1,3 @@
 #!/bin/bash
 # displayys the methods available
-echo "$(curl -X OPTIONS -s "$1")"
+echo "$(curl -s -i -X OPTIONS "$1" | grep -i "^allow:" | cut -d' ' -f2-)"
