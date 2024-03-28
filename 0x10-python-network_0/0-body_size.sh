@@ -1,3 +1,3 @@
 #!/bin/bash
-res=$(curl -sS "$1")
-echo -n "$res" | wc -c
+# Displays te response of a request of an url
+echo -n "$(curl -sS "$1")" | wc -c
