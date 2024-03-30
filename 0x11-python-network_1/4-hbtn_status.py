@@ -4,7 +4,7 @@ import requests
 
 if __name__ == '__main__':
     rez = requests.get('https://alx-intranet.hbtn.io/status')
-    rez = rez.text
+    final = rez.content
     print("Body response:$")
-    print(f'\t- type: {type(rez)}$')
-    print(f'\t- content: {rez}$')
+    print(f'\t- type: {type(final)}$')
+    print(f'\t- content: {final.decode("utf-8")}$')
