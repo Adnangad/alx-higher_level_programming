@@ -3,11 +3,10 @@
 import urllib.request
 
 
-if __name__ == '__main__':
-    """"""
+if __name__ == "__main__":
     with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
-        rez = response.read()
+        html = response.read()
     print("Body response:")
-    print(f'\t- type: {type(rez)}')
-    print(f'\t- content: {rez}')
-    print(f'\t- utf content: {rez.decode("utf-8")}')
+    print(f'\t- type: {type(html)}')
+    print(f'\t- content: {html}')
+    print(f'\t- utf content: {html.decode("utf-8")}')
