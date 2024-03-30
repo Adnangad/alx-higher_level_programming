@@ -3,8 +3,10 @@
 
 
 def find_peak(list_of_integers):
-    if not list_of_integers:
+    if len(list_of_integers) == 0 or list_of_integers is None:
         return None
+    if len(list_of_integers) == 1:
+        return list_of_integers[0]
     i, j = 0, len(list_of_integers) - 1
 
     while j > i:
