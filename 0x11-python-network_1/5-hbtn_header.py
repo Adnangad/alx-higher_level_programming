@@ -5,5 +5,5 @@ import sys
 
 if __name__ == '__main__':
     rez = requests.get(sys.argv[1])
-    di = rez.requests.header.get('X-Request-Id')
+    di = rez.headers.get('X-Request-Id')
     print(di)

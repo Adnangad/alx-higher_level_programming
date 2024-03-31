@@ -7,5 +7,4 @@ import sys
 if __name__ == '__main__':
     data = {'email' : sys.argv[2]}
     rez = requests.post(sys.argv[1], data=data)
-    print("Your email is: ", sys.argv[2])
     print(rez.text)
