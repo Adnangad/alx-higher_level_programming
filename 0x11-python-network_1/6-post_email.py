@@ -1,10 +1,13 @@
 #!/usr/bin/python3
+"""
+Sends a post request with email as a parameter
+"""
 import requests
-import sys
-"""Module posts an email on an url"""
+from sys import argv
 
 
-if __name__ == '__main__':
-    data = {'email' : sys.argv[2]}
-    rez = requests.post(sys.argv[1], data=data)
+if __name__ =="__main__":
+    pas = {'email': argv[2]}
+    url = argv[1]
+    rez = requests.post(url, data=pas)
     print(rez.text)
